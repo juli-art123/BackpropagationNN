@@ -62,7 +62,7 @@ class NeuralNetwork:
                 grad_v = np.dot(Delta, Y_c_bias.T) / X_batch.shape[1]
                 self.V -= self.learning_rate * grad_v
                 # Для перерахунку W видаляємо +1 вагу з V
-                V_upd = self.V[:, :-1].copy()
+                V_upd = self.V[:, :-1].c
                 grad_w = np.dot(np.dot(V_upd.T, Delta) * Y_c * (1.0 - Y_c), X_bias.T) / X_batch.shape[1]
                 self.W -= self.learning_rate * grad_w
 
